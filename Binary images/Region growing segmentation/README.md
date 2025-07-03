@@ -21,7 +21,7 @@ This method is simple but effective for separating objects from background when 
 ## Techniques Used
 
 - **Thresholding**: Converts grayscale to binary using [`cv2.threshold`](https://docs.opencv.org/4.x/d7/d1b/tutorial_py_thresholding.html). You can tune the threshold value depending on image brightness.
-  
+
   ```python
   _, binary = cv2.threshold(img, 100, 255, cv2.THRESH_BINARY)
   ```
@@ -32,18 +32,22 @@ This method is simple but effective for separating objects from background when 
 
 ---
 
-### Output
+## Example
 
-The segmented result is saved as:
+### Input Image
+![Original Image](bottle.jpg)
 
-```
-region_growing_output.png
-```
+### Region-Grown Output
+![Segmented Output](region_growing_output.png)
 
-To change the segmentation seed, modify the `seed = (x, y)` line in the script.
+---
+
+### Customization
+
+To change the segmentation seed, modify this line:
 
 ```python
 seed = (100, 100)
 ```
 
-Make sure this point lies inside the foreground object (white region in binary image).
+Make sure the seed lies inside the foreground region (white pixel in the binary image).
